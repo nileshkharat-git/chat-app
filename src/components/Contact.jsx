@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { darkTheme } from '../util/Theme'
 
-
+// pages
+import Chat from '../pages/Chat';
 
 const Conatiner = styled.div`
   width: 100%;
@@ -11,7 +13,7 @@ const Conatiner = styled.div`
   border-bottom: 1px solid white;
   display: flex;
   align-items: center;
- 
+
   &:hover{
     cursor: pointer;
   }
@@ -32,13 +34,22 @@ const Name = styled.h3`
     font-size: 1.5rem;
     font-family: arial,sans-serif;
     margin-left: 10px;
+    
 `;
+
+const LinkStyle = {
+  textDecoration: 'none',
+  color: 'white',
+  fontWeight: 'bold',
+}
 const Contact = ({user}) => {
   return (
-    <Conatiner>
-        <Icon src={user.profilePic} />
-        <Name>{user.name}</Name>
-    </Conatiner>
+    <Link to={`chat/${user.id}`} style={LinkStyle}>
+      <Conatiner>
+          <Icon src={user.profilePic} />
+          <Name>{user.name}</Name>
+      </Conatiner>
+    </Link>
   )
 }
 
