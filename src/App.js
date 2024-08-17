@@ -1,28 +1,34 @@
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // style
-import './App.css';
+import "./App.css";
 
 // components
-import Header from './components/Header';
-import ContactList from './components/ContactList';
+import Header from "./components/Header";
+import ContactList from "./components/ContactList";
 
 // pages
-import Chat from './pages/Chat';
+import Chat from "./pages/Chat";
+import Login from "./pages/Login";
+
+import { MessageContext } from "./Context";
 
 function App() {
-  const { chat, setChat} = useState({});
-  
+  const [message, setMessage] = useState([]);
+
   return (
     <>
       <Header />
-      <BrowserRouter>
-        <Routes>  
-          <Route path='/' element={<ContactList />} />
-          <Route path='/chat/:id' element={<Chat />} />
-        </Routes>        
-      </BrowserRouter>
+      <MessageContext.Provider value={[message, setMessage]}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<ContactList />} />
+            <Route path="/chat/:userid" element={<Chat />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </MessageContext.Provider>
     </>
   );
 }
