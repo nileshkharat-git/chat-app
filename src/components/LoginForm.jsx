@@ -47,7 +47,6 @@ const LoginForm = () => {
       .then(response => response.json())
       .then(response => {
         sessionStorage.setItem("userID", response.userID);
-        // console.log(response.userID);
       })
       return navigate("/room-list");
     } else {
