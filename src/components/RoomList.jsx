@@ -10,7 +10,7 @@ import Room from "./Room";
 
 const addPerson = {
   fontSize: "2rem",
-  color: `${darkTheme.text_primary}`,
+  color: "white",
   margin: "4px auto",
   display: "block",
 };
@@ -43,8 +43,8 @@ const RoomList = () => {
   const navigate = useNavigate();
   return (
     <>
-      {rooms.length >0 ? rooms.map(room =>(
-        <Room key={room._id} room={room} />
+      {rooms.length >0 ? rooms.map((room, id) =>(
+        <Room key={id} room={room} />
       )):(<NotConnected>Not conntected with any room.</NotConnected>)}
       <AddPersonWrapper onClick={() => navigate("/create-room")}>
         <BsPersonPlusFill style={addPerson} />
