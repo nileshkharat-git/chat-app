@@ -10,7 +10,7 @@ export const Container = styled.div`
   border: 1px solid ${darkTheme.bg_regular};
   border-radius: 4px;
   padding: 10px;
-  box-shadow: 0px 4px 10px ${darkTheme.bg_regular};
+  box-shadow: 0px 4px 10px ${darkTheme.shadow};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@ export const Button = styled.button`
   padding: 10px;
   font-weight: 500;
   background: ${darkTheme.bg_primary};
-  color: ${darkTheme.text_primary};
+  color: ${darkTheme.text_secondary};
   font-size: 1rem;
   border: none;
   border-radius: 25px;
