@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import styled from "styled-components";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsThreeDotsVertical, BsBoxArrowLeft } from "react-icons/bs";
 import { darkTheme } from "../util/Theme";
+import { userLogout } from "../util/Menu";
+import socket from "../socket";
 
 const Container = styled.div`
   width: 100%;
@@ -16,52 +20,15 @@ const Heading = styled.h1`
   font-weight: 500;
   padding: 0.5rem;
   color: white;
+  margin-left: 0.5rem;
 `;
 
-const MenuItem = styled.li`
-  display: block;
-  font-size: 14px;
-  font-family: "Roboto", sans;
-  font-weight: 600;
-  height: 3vh;
-  padding: 5px 0;
-  align-items: center;
 
-  &:hover {
-    cursor: pointer;
-    background-color: #bbbbbb;
-    color: white;
-  }
-`;
-const threedot = {
-  cursor: "pointer",
-  color: "white",
-  fontSize: "1.4rem",
-};
 const Header = () => {
-  const [show, setShow] = useState(false);
-  const Menu = styled.ul`
-    position: absolute;
-    width: 25%;
-    text-align: center;
-    background-color: ${darkTheme.bg_regular};
-    right: 10px;
-    top: 6%;
-    border-radius: 5%;
-    display: ${show ? "block" : "none"};
-    @media (min-width: 600px) {
-      width: 10%;
-      border-radius: 5%;
-    }
-  `;
+
   return (
     <Container>
-      <Heading>chatApp</Heading>
-      <BsThreeDotsVertical onClick={() => setShow(!show)} style={threedot} />
-      <Menu>
-        <MenuItem>New Group</MenuItem>
-        <MenuItem>Settings</MenuItem>
-      </Menu>
+      <Heading>Samvaad</Heading>
     </Container>
   );
 };
